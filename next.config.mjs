@@ -9,6 +9,16 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      // Avoid 404s from browsers requesting /favicon.ico by redirecting to an existing SVG
+      {
+        source: '/favicon.ico',
+        destination: '/placeholder-logo.svg',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig

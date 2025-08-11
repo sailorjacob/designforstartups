@@ -17,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/placeholder-logo.svg" type="image/svg+xml" />
         <style>{`
 html {
   font-family: ${GeistSans.style.fontFamily};
