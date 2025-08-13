@@ -1,363 +1,161 @@
-import { ArrowRight, Minus } from "lucide-react"
-
+import { ArrowRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import Script from "next/script"
 
 export default function HomePage() {
+  const bookingUrl = "https://cal.com/designforstartups/secret";
   return (
-    <div className="min-h-screen bg-white scroll-smooth">
-      {/* Navigation */}
-      <nav className="border-b border-gray-100">
-        <div className="container mx-auto px-8 py-6 flex items-center justify-between">
-          <div className="text-2xl font-light tracking-wide text-black">Design for Startups</div>
-          <div className="hidden md:flex items-center space-x-12">
-            <a href="#services" className="text-gray-600 hover:text-black transition-colors font-light scroll-smooth">
-              Services
-            </a>
-            <a href="#approach" className="text-gray-600 hover:text-black transition-colors font-light scroll-smooth">
-              Approach
-            </a>
-            <a href="#investment" className="text-gray-600 hover:text-black transition-colors font-light scroll-smooth">
-              Investment
-            </a>
-            <Button
-              variant="outline"
-              className="border-black text-black hover:bg-black hover:text-white transition-all duration-300 font-light px-8 bg-transparent"
-            >
-              <a href="#investment">Begin</a>
-            </Button>
+    <div className="h-dvh overflow-hidden bg-white">
+      <div className="relative h-full w-full">
+        {/* Brand mark */}
+        <div className="absolute left-8 top-8 z-20 text-sm tracking-widest text-black/70">
+          DESIGN FOR STARTUPS
+        </div>
+
+        {/* Accent shape */}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="relative h-[70vmin] w-[70vmin]">
+            <div className="absolute inset-0 rounded-[48%_52%_47%_53%/40%_46%_54%_60%] bg-[radial-gradient(circle_at_30%_30%,_oklch(0.82_0.21_24)_0%,transparent_60%),radial-gradient(circle_at_70%_60%,_oklch(0.93_0.03_280)_0%,transparent_55%)] opacity-20 blur-2xl" />
+            <div className="absolute inset-0 animate-[spin_40s_linear_infinite] rounded-[48%_52%_47%_53%/40%_46%_54%_60%] bg-[conic-gradient(from_120deg,_oklch(0.18_0_0)_0%,_oklch(0.22_0_0)_35%,_oklch(0.18_0_0)_70%,_oklch(0.18_0_0)_100%)] shadow-[0_0_120px_-30px_rgba(0,0,0,0.3)]" />
+            <div className="absolute inset-8 rounded-[40%_60%_50%_50%/50%_50%_40%_60%] bg-[radial-gradient(circle_at_50%_50%,_oklch(0.7_0.24_20)_0%,_transparent_55%)] opacity-30" />
           </div>
         </div>
-      </nav>
 
-      {/* Hero Section */}
-      <section className="py-32 px-8">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center space-y-8">
-            <h1 className="text-7xl md:text-8xl font-extralight text-black leading-none tracking-tight">
-              Bespoke
-              <br />
-              <span className="font-light">Brand Identity</span>
-            </h1>
-            <div className="w-24 h-px bg-black mx-auto"></div>
-            <p className="text-xl font-light text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              We craft distinctive brand identities for visionary startups. From concept to execution, every detail is
-              meticulously designed.
-            </p>
-            <div className="pt-8">
-              <Button
-                size="lg"
-                className="bg-black hover:bg-gray-900 text-white font-light px-12 py-4 text-lg transition-all duration-300"
-              >
-                <a href="#investment" className="flex items-center">
-                  Start Your Journey
-                  <ArrowRight className="ml-3 w-5 h-5" />
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="py-32 px-8 bg-gray-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-24">
-            <h2 className="text-5xl font-extralight text-black mb-6">Our Craft</h2>
-            <div className="w-16 h-px bg-black mx-auto"></div>
+        {/* Center content */}
+        <main className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-8 text-center">
+          {/* Soft contrast halo for readability */}
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(closest-side,_white_0%,_transparent_70%)] opacity-70 blur-2xl" />
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-xs text-black/60 backdrop-blur">
+            <Sparkles className="h-3.5 w-3.5" />
+            bespoke brand & identity
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
-            <div className="space-y-16">
-              <div className="group">
-                <div className="flex items-start space-x-6">
-                  <div className="w-2 h-2 bg-black rounded-full mt-3 group-hover:scale-150 transition-transform duration-300"></div>
-                  <div>
-                    <h3 className="text-2xl font-light text-black mb-4">Visual Identity</h3>
-                    <p className="text-gray-600 font-light leading-relaxed">
-                      Distinctive logos and visual systems that embody your startup's essence. Every mark is crafted
-                      with precision and purpose.
-                    </p>
+          <h1 className="text-6xl md:text-8xl font-light leading-[0.95] tracking-[-0.02em] text-black">
+            You need design and branding help.
+            <br />
+            <span className="font-extralight text-black/70">This is your answer.</span>
+          </h1>
+
+          <div className="mt-10 flex items-center gap-4">
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline" className="px-8 bg-white/70 hover:bg-white">Get a 15‑min audit</Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle className="font-light">Free Branding Audit</DialogTitle>
+                  <DialogDescription className="text-black/60">
+                    Share your site or deck. We’ll send 3 actionable recommendations within 24 hours.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="space-y-4">
+                  <a href="mailto:info@haven.engineer?subject=Branding%20Audit" className="block rounded-md border border-black/10 px-4 py-3 text-center text-sm hover:bg-black hover:text-white transition-colors">Email: info@haven.engineer</a>
+                  <div id="my-cal-inline-secret" className="h-[60vh] w-full overflow-auto rounded-md border border-black/10" />
+                  <Script id="cal-inline-embed" strategy="afterInteractive">{`
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document; C.Cal = C.Cal || function () {
+      let cal = C.Cal; let ar = arguments;
+      if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1]; api.q = api.q || [];
+        if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); }
+        else p(cal, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "secret", { origin: "https://app.cal.com" });
+  Cal.ns.secret("inline", {
+    elementOrSelector: "#my-cal-inline-secret",
+    config: { "layout": "month_view" },
+    calLink: "designforstartups/secret",
+  });
+  Cal.ns.secret("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
+                  `}</Script>
+                </div>
+              </DialogContent>
+            </Dialog>
+
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline" className="px-8">View offerings</Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-2xl">
+                <DialogHeader>
+                  <DialogTitle className="font-light">Straightforward Pricing</DialogTitle>
+                  <DialogDescription className="text-black/60">Fundamentals that launch with confidence.</DialogDescription>
+                </DialogHeader>
+                <div className="rounded-xl border border-black/10 p-6 sm:p-8 bg-white/70 backdrop-blur">
+                  <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <div className="text-sm text-black/60">Growth</div>
+                      <div className="text-3xl sm:text-4xl font-light mt-1">$1,000/mo</div>
+                    </div>
+                    <div className="text-sm text-black/70 grid gap-2 sm:grid-cols-2 sm:gap-4">
+                      <div>
+                        <ul className="space-y-1">
+                          <li>Design system</li>
+                          <li>Monthly refinement</li>
+                          <li>Priority support</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <ul className="space-y-1">
+                          <li>Messaging alignment</li>
+                          <li>Asset updates</li>
+                          <li>Founder-first cadence</li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="group">
-                <div className="flex items-start space-x-6">
-                  <div className="w-2 h-2 bg-black rounded-full mt-3 group-hover:scale-150 transition-transform duration-300"></div>
-                  <div>
-                    <h3 className="text-2xl font-light text-black mb-4">Digital Assets</h3>
-                    <p className="text-gray-600 font-light leading-relaxed">
-                      Comprehensive asset libraries optimized for digital platforms. Ready for seamless implementation
-                      across all touchpoints.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="group">
-                <div className="flex items-start space-x-6">
-                  <div className="w-2 h-2 bg-black rounded-full mt-3 group-hover:scale-150 transition-transform duration-300"></div>
-                  <div>
-                    <h3 className="text-2xl font-light text-black mb-4">Brand Language</h3>
-                    <p className="text-gray-600 font-light leading-relaxed">
-                      Articulate messaging frameworks that resonate with your audience. Every word carefully chosen to
-                      reflect your vision.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-16">
-              <div className="group">
-                <div className="flex items-start space-x-6">
-                  <div className="w-2 h-2 bg-black rounded-full mt-3 group-hover:scale-150 transition-transform duration-300"></div>
-                  <div>
-                    <h3 className="text-2xl font-light text-black mb-4">Design Systems</h3>
-                    <p className="text-gray-600 font-light leading-relaxed">
-                      Cohesive visual languages with typography, color, and spatial relationships. Foundations for
-                      consistent brand expression.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="group">
-                <div className="flex items-start space-x-6">
-                  <div className="w-2 h-2 bg-black rounded-full mt-3 group-hover:scale-150 transition-transform duration-300"></div>
-                  <div>
-                    <h3 className="text-2xl font-light text-black mb-4">Technical Guidance</h3>
-                    <p className="text-gray-600 font-light leading-relaxed">
-                      Strategic technology recommendations aligned with your brand vision. Bridging design intent with
-                      technical execution.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="group">
-                <div className="flex items-start space-x-6">
-                  <div className="w-2 h-2 bg-black rounded-full mt-3 group-hover:scale-150 transition-transform duration-300"></div>
-                  <div>
-                    <h3 className="text-2xl font-light text-black mb-4">Brand Strategy</h3>
-                    <p className="text-gray-600 font-light leading-relaxed">
-                      Comprehensive brand positioning and strategic direction. From conception to market presence, we
-                      guide every step.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              </DialogContent>
+            </Dialog>
           </div>
+        </main>
+
+        {/* Accent controls */}
+        <div className="pointer-events-auto absolute bottom-8 right-8 z-20 flex items-center gap-2">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" className="px-3 py-2 text-xs">About</Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-sm">
+              <DialogHeader>
+                <DialogTitle className="font-light">Design, for startups</DialogTitle>
+                <DialogDescription className="text-black/60">
+                  We craft brand identities for founders who value clarity, restraint, and long‑term equity.
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" className="px-3 py-2 text-xs">Contact</Button>
+            </DialogTrigger>
+              <DialogContent className="sm:max-w-sm">
+              <DialogHeader>
+                <DialogTitle className="font-light">Get in touch</DialogTitle>
+                <DialogDescription className="text-black/60">
+                  info@haven.engineer • Singapore / Remote
+                </DialogDescription>
+              </DialogHeader>
+              <div className="flex gap-2">
+                <a href="mailto:info@haven.engineer" className="flex-1 rounded-md border border-black/10 px-4 py-2 text-center text-sm hover:bg-black hover:text-white transition-colors">Email</a>
+                <a href="#my-cal-inline-secret" className="flex-1 rounded-md border border-black/10 px-4 py-2 text-center text-sm hover:bg-black hover:text-white transition-colors">Book</a>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
-      </section>
 
-      {/* Approach Section */}
-      <section id="approach" className="py-32 px-8">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-5xl font-extralight text-black mb-12">Our Approach</h2>
-          <div className="w-16 h-px bg-black mx-auto mb-16"></div>
-
-          <div className="space-y-24">
-            <div>
-              <h3 className="text-3xl font-light text-black mb-8">Discover</h3>
-              <p className="text-xl font-light text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                We begin by understanding your vision, values, and aspirations. Every great brand starts with a profound
-                understanding of purpose.
-              </p>
-            </div>
-
-            <div className="flex justify-center">
-              <Minus className="w-8 h-px text-gray-300" />
-            </div>
-
-            <div>
-              <h3 className="text-3xl font-light text-black mb-8">Design</h3>
-              <p className="text-xl font-light text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                Through iterative refinement, we craft visual and verbal expressions that authentically represent your
-                startup's unique character.
-              </p>
-            </div>
-
-            <div className="flex justify-center">
-              <Minus className="w-8 h-px text-gray-300" />
-            </div>
-
-            <div>
-              <h3 className="text-3xl font-light text-black mb-8">Deliver</h3>
-              <p className="text-xl font-light text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                Complete brand systems ready for implementation. Every asset, guideline, and specification meticulously
-                prepared.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Investment Section */}
-      <section id="investment" className="py-32 px-8 bg-black text-white">
-        <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-5xl font-extralight mb-12">Investment</h2>
-          <div className="w-16 h-px bg-white mx-auto mb-16"></div>
-
-          <div className="space-y-12">
-            <div>
-              <div className="text-6xl font-extralight mb-4">$1,000</div>
-              <div className="text-xl font-light text-gray-300 mb-12">Monthly Partnership</div>
-            </div>
-
-            <div className="max-w-md mx-auto space-y-6 text-left">
-              <div className="flex items-center space-x-4">
-                <div className="w-1 h-1 bg-white rounded-full"></div>
-                <span className="font-light">Complete visual identity system</span>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="w-1 h-1 bg-white rounded-full"></div>
-                <span className="font-light">Comprehensive digital asset library</span>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="w-1 h-1 bg-white rounded-full"></div>
-                <span className="font-light">Brand language and messaging framework</span>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="w-1 h-1 bg-white rounded-full"></div>
-                <span className="font-light">Design system and style guidelines</span>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="w-1 h-1 bg-white rounded-full"></div>
-                <span className="font-light">Technical implementation guidance</span>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="w-1 h-1 bg-white rounded-full"></div>
-                <span className="font-light">Ongoing strategic support</span>
-              </div>
-            </div>
-
-            <div className="pt-12">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-black transition-all duration-300 font-light px-12 py-4 text-lg bg-transparent"
-              >
-                <a href="#contact" className="flex items-center">
-                  Begin Partnership
-                  <ArrowRight className="ml-3 w-5 h-5" />
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-32 px-8">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-6xl font-extralight text-black mb-12 leading-tight">Ready to Begin?</h2>
-          <div className="w-24 h-px bg-black mx-auto mb-16"></div>
-          <p className="text-xl font-light text-gray-600 mb-16 max-w-2xl mx-auto leading-relaxed">
-            Join a select group of visionary startups who have transformed their presence through exceptional brand
-            design.
-          </p>
-          <div className="space-y-6">
-            <Button
-              size="lg"
-              className="bg-black hover:bg-gray-900 text-white font-light px-16 py-4 text-lg transition-all duration-300"
-            >
-              <a href="#contact">Schedule Consultation</a>
-            </Button>
-            <div>
-              <button className="text-gray-600 hover:text-black font-light underline underline-offset-4 transition-colors">
-                View Selected Work
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-32 px-8 bg-gray-50">
-        <div className="container mx-auto max-w-2xl">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-extralight text-black mb-6">Begin Your Journey</h2>
-            <div className="w-16 h-px bg-black mx-auto mb-8"></div>
-            <p className="text-xl font-light text-gray-600 leading-relaxed">
-              Share your vision with us. We'll respond within 24 hours to discuss how we can bring your brand to life.
-            </p>
-          </div>
-
-          <form className="space-y-8">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <label className="block text-sm font-light text-gray-600 mb-3">Name</label>
-                <input
-                  type="text"
-                  className="w-full border-b border-gray-300 bg-transparent py-3 focus:border-black focus:outline-none transition-colors font-light"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-light text-gray-600 mb-3">Email</label>
-                <input
-                  type="email"
-                  className="w-full border-b border-gray-300 bg-transparent py-3 focus:border-black focus:outline-none transition-colors font-light"
-                  required
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-light text-gray-600 mb-3">Company</label>
-              <input
-                type="text"
-                className="w-full border-b border-gray-300 bg-transparent py-3 focus:border-black focus:outline-none transition-colors font-light"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-light text-gray-600 mb-3">Tell us about your vision</label>
-              <textarea
-                rows={4}
-                className="w-full border-b border-gray-300 bg-transparent py-3 focus:border-black focus:outline-none transition-colors font-light resize-none"
-                required
-              ></textarea>
-            </div>
-
-            <div className="text-center pt-8">
-              <Button
-                type="submit"
-                size="lg"
-                className="bg-black hover:bg-gray-900 text-white font-light px-16 py-4 text-lg transition-all duration-300"
-              >
-                Send Message
-              </Button>
-            </div>
-          </form>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-16 px-8 border-t border-gray-100">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-2xl font-light tracking-wide text-black mb-8 md:mb-0">Design for Startups</div>
-            <div className="flex space-x-12 text-gray-600 font-light">
-              <a href="#" className="hover:text-black transition-colors">
-                Privacy
-              </a>
-              <a href="#" className="hover:text-black transition-colors">
-                Terms
-              </a>
-              <a href="#" className="hover:text-black transition-colors">
-                Contact
-              </a>
-            </div>
-          </div>
-          <div className="border-t border-gray-100 mt-12 pt-12 text-center">
-            <p className="text-gray-500 font-light">© 2024 Design for Startups. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+        {/* Frame */}
+        <div className="pointer-events-none absolute inset-0 rounded-none md:rounded-[24px] border border-black/[0.06]" />
+      </div>
     </div>
   )
 }
