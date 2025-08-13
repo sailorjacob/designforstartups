@@ -54,12 +54,12 @@ export default function AccentOverlay() {
             </>
           ) : (
             <>
-              {/* Neon ambient glows */}
-              <div className="absolute inset-0 rounded-[48%_52%_47%_53%/40%_46%_54%_60%] bg-[radial-gradient(circle_at_28%_32%,_oklch(0.9_0.34_140)_0%,transparent_60%),radial-gradient(circle_at_72%_62%,_oklch(0.92_0.35_320)_0%,transparent_55%)] opacity-30 blur-2xl" />
-              {/* Neon conic core */}
-              <div className="absolute inset-0 animate-[spin_36s_linear_infinite] rounded-[48%_52%_47%_53%/40%_46%_54%_60%] bg-[conic-gradient(from_120deg,_oklch(0.86_0.33_140)_0%,_oklch(0.85_0.32_200)_25%,_oklch(0.86_0.33_320)_50%,_oklch(0.88_0.28_20)_75%,_oklch(0.86_0.33_140)_100%)] shadow-[0_0_160px_-30px_rgba(0,0,0,0.25)]" />
-              {/* Inner neon glow */}
-              <div className="absolute inset-8 rounded-[40%_60%_50%_50%/50%_50%_40%_60%] bg-[radial-gradient(circle_at_50%_50%,_oklch(0.93_0.3_200)_0%,_transparent_58%)] opacity-35" />
+              {/* Neon ambient glows (silver-blue + neon green) */}
+              <div className="absolute inset-0 rounded-[48%_52%_47%_53%/40%_46%_54%_60%] bg-[radial-gradient(circle_at_28%_32%,_oklch(0.92_0.12_230)_0%,transparent_60%),radial-gradient(circle_at_72%_62%,_oklch(0.9_0.27_145)_0%,transparent_55%)] opacity-30 blur-2xl" />
+              {/* Conic core with two-tone sweep */}
+              <div className="absolute inset-0 animate-[spin_40s_linear_infinite] rounded-[48%_52%_47%_53%/40%_46%_54%_60%] bg-[conic-gradient(from_120deg,_oklch(0.9_0.10_230)_0%,_oklch(0.88_0.26_145)_35%,_oklch(0.92_0.12_230)_70%,_oklch(0.9_0.10_230)_100%)] shadow-[0_0_160px_-30px_rgba(0,0,0,0.25)]" />
+              {/* Inner soft glow biased to blue-silver */}
+              <div className="absolute inset-8 rounded-[40%_60%_50%_50%/50%_50%_40%_60%] bg-[radial-gradient(circle_at_50%_50%,_oklch(0.96_0.08_230)_0%,_transparent_58%)] opacity-35" />
             </>
           )}
         </div>
