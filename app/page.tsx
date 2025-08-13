@@ -1,8 +1,7 @@
 import { ArrowRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import dynamic from "next/dynamic"
-const AccentOverlay = dynamic(() => import("@/components/accent-overlay"), { ssr: false })
+import AccentOverlay from "@/components/accent-overlay"
 import Script from "next/script"
 
 export default function HomePage() {
