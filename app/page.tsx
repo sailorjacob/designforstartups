@@ -86,7 +86,10 @@ export default function HomePage() {
                 <div className="rounded-xl border border-black/10 p-6 sm:p-8 bg-white/70 backdrop-blur">
                   <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
                     <div>
-                      <div className="text-sm text-black/60">Growth</div>
+                      <div className="flex items-baseline gap-2">
+                        <div className="text-sm text-black/60">Growth</div>
+                        <div className="text-[11px] uppercase tracking-wide text-black/50">starting at</div>
+                      </div>
                       <div className="text-3xl sm:text-4xl font-light mt-1">$1,000/mo</div>
                     </div>
                     <div className="text-sm text-black/70 grid gap-2 sm:grid-cols-2 sm:gap-4">
