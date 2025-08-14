@@ -18,16 +18,16 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-type AccentVariant = "classic" | "neon"
+type AccentVariant = "classic" | "neon" | "rainbow"
 
 function getInitialVariant(): AccentVariant {
-  if (typeof window === "undefined") return "classic"
+  if (typeof window === "undefined") return "rainbow"
   const stored = window.localStorage.getItem("accent-variant") as AccentVariant | null
-  return stored === "neon" || stored === "classic" ? stored : "classic"
+  return stored === "neon" || stored === "classic" || stored === "rainbow" ? stored : "rainbow"
 }
 
 export default function AccentOverlay() {
-  const [variant, setVariant] = useState<AccentVariant>("classic")
+  const [variant, setVariant] = useState<AccentVariant>("rainbow")
 
   useEffect(() => {
     setVariant(getInitialVariant())
@@ -40,6 +40,7 @@ export default function AccentOverlay() {
   }, [variant])
 
   const isClassic = variant === "classic"
+  const isNeon = variant === "neon"
 
   return (
     <>
@@ -52,7 +53,7 @@ export default function AccentOverlay() {
               <div className="absolute inset-0 animate-[spin_40s_linear_infinite] rounded-[48%_52%_47%_53%/40%_46%_54%_60%] bg-[conic-gradient(from_120deg,_oklch(0.18_0_0)_0%,_oklch(0.22_0_0)_35%,_oklch(0.18_0_0)_70%,_oklch(0.18_0_0)_100%)] shadow-[0_0_120px_-30px_rgba(0,0,0,0.3)]" />
               <div className="absolute inset-8 rounded-[40%_60%_50%_50%/50%_50%_40%_60%] bg-[radial-gradient(circle_at_50%_50%,_oklch(0.7_0.24_20)_0%,_transparent_55%)] opacity-30" />
             </>
-          ) : (
+          ) : isNeon ? (
             <>
               {/* Neon ambient glows (silver-blue + neon green) */}
               <div className="absolute inset-0 rounded-[48%_52%_47%_53%/40%_46%_54%_60%] bg-[radial-gradient(circle_at_28%_32%,_oklch(0.92_0.12_230)_0%,transparent_60%),radial-gradient(circle_at_72%_62%,_oklch(0.9_0.27_145)_0%,transparent_55%)] opacity-30 blur-2xl" />
@@ -60,6 +61,13 @@ export default function AccentOverlay() {
               <div className="absolute inset-0 animate-[spin_40s_linear_infinite] rounded-[48%_52%_47%_53%/40%_46%_54%_60%] bg-[conic-gradient(from_120deg,_oklch(0.9_0.10_230)_0%,_oklch(0.88_0.26_145)_35%,_oklch(0.92_0.12_230)_70%,_oklch(0.9_0.10_230)_100%)] shadow-[0_0_160px_-30px_rgba(0,0,0,0.25)]" />
               {/* Inner soft glow biased to blue-silver */}
               <div className="absolute inset-8 rounded-[40%_60%_50%_50%/50%_50%_40%_60%] bg-[radial-gradient(circle_at_50%_50%,_oklch(0.96_0.08_230)_0%,_transparent_58%)] opacity-35" />
+            </>
+          ) : (
+            <>
+              {/* Rainbow neon (original multi‑hue sweep) */}
+              <div className="absolute inset-0 rounded-[48%_52%_47%_53%/40%_46%_54%_60%] bg-[radial-gradient(circle_at_28%_32%,_oklch(0.9_0.34_140)_0%,transparent_60%),radial-gradient(circle_at_72%_62%,_oklch(0.92_0.35_320)_0%,transparent_55%)] opacity-30 blur-2xl" />
+              <div className="absolute inset-0 animate-[spin_36s_linear_infinite] rounded-[48%_52%_47%_53%/40%_46%_54%_60%] bg-[conic-gradient(from_120deg,_oklch(0.86_0.33_140)_0%,_oklch(0.85_0.32_200)_25%,_oklch(0.86_0.33_320)_50%,_oklch(0.88_0.28_20)_75%,_oklch(0.86_0.33_140)_100%)] shadow-[0_0_160px_-30px_rgba(0,0,0,0.25)]" />
+              <div className="absolute inset-8 rounded-[40%_60%_50%_50%/50%_50%_40%_60%] bg-[radial-gradient(circle_at_50%_50%,_oklch(0.93_0.3_200)_0%,_transparent_58%)] opacity-35" />
             </>
           )}
         </div>
@@ -73,7 +81,8 @@ export default function AccentOverlay() {
           </SelectTrigger>
           <SelectContent align="end">
             <SelectItem value="classic">Classic</SelectItem>
-            <SelectItem value="neon">Neon</SelectItem>
+            <SelectItem value="neon">Neon (Blue/Silver/Green)</SelectItem>
+            <SelectItem value="rainbow">Neon (Rainbow)</SelectItem>
           </SelectContent>
         </Select>
 
