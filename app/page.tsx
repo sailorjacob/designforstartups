@@ -74,7 +74,8 @@ export default function HomePage() {
               </DialogContent>
             </Dialog>
 
-            <Dialog className="hidden">
+{/* 
+            <Dialog>
               <DialogTrigger asChild>
                 <Button variant="outline" className="px-8">View offerings</Button>
               </DialogTrigger>
@@ -112,6 +113,7 @@ export default function HomePage() {
                 </div>
               </DialogContent>
             </Dialog>
+            */}
           </div>
         </main>
 
