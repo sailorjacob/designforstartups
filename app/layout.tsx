@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
+import CookiesBanner from '@/components/cookies-banner'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -26,7 +27,10 @@ html {
 }
         `}</style>
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <CookiesBanner />
+      </body>
     </html>
   )
 }
