@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, Twitter, Linkedin } from "lucide-react"
+import { ArrowRight, Sparkles, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import AccentOverlay from "@/components/accent-overlay"
@@ -11,12 +11,14 @@ export default function HomePage() {
   return (
     <div className="h-dvh overflow-hidden bg-white">
       <div className="relative h-full w-full">
-        {/* Brand mark */}
-        <div className="absolute left-8 top-8 z-20 text-sm tracking-widest text-black/70">DESIGN FOR STARTUPS</div>
-        
-        {/* Top right controls */}
-        <div className="absolute right-8 top-8 z-20 flex items-center gap-4">
+        {/* Brand mark + theme toggles */}
+        <div className="absolute left-8 top-8 z-20 flex items-center gap-4">
+          <div className="text-sm tracking-widest text-black/70">DESIGN FOR STARTUPS</div>
           <VariantToggles />
+        </div>
+        
+        {/* Explore button */}
+        <div className="absolute right-8 top-8 z-20">
           <Link href="/explore">
             <Button variant="outline" className="bg-white/70 hover:bg-white">Explore</Button>
           </Link>
@@ -139,7 +141,7 @@ export default function HomePage() {
             aria-label="X (Twitter)"
             className="inline-flex items-center hover:text-black"
           >
-            <Twitter className="h-4 w-4" />
+            <X className="h-4 w-4" />
           </a>
         </div>
       </div>
