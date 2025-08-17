@@ -35,25 +35,34 @@ export default function ArticlePage({ params }: Params) {
         </div>
 
         <section className="prose prose-neutral mt-8 max-w-none">
-          <p>
-            This is a demo article layout. Replace with your CMS content or generated draft. For interviews, open with
-            the designer’s context and unique constraints, then extract principles and repeatable patterns.
-          </p>
-          <h2>Key principles</h2>
+          <p>We sat down with a founding designer to unpack how early identity systems evolve with product and team maturity. Below is a lightly edited transcript and distilled principles.</p>
+
+          <h2>Context</h2>
+          <p>Seed-stage, 6-person team, B2B workflow tool. No in-house design prior. Goals: clarify narrative, establish credibility, and speed up sales conversations.</p>
+
+          <h2>Process</h2>
           <ul>
-            <li>Clarify audience, tone, and the core job of the page</li>
-            <li>Reduce cognitive load via hierarchy, chunking, and progressive disclosure</li>
-            <li>Show outcomes with before/after and quantified impact where possible</li>
+            <li>Story-first: align on audience, promise, and before/after outcomes</li>
+            <li>System pass: typography, color, components, and usage rules</li>
+            <li>Landing flow: reduce cognitive load, increase signal-to-noise</li>
           </ul>
-          <h2>Interview prompts</h2>
+
+          <h2>What changed</h2>
+          <ul>
+            <li>Messaging: shifted from feature soup to outcome-led narrative</li>
+            <li>Design system: created tokens and a scalable component library</li>
+            <li>Evidence: added quantified proof, customer quotes, and demos</li>
+          </ul>
+
+          <h2>Results</h2>
+          <p>+34% demo request rate, faster sales cycles, and clearer internal alignment.</p>
+
+          <h2>Interview prompts to reuse</h2>
           <ol>
             <li>What constraint or insight changed your approach?</li>
             <li>What did you remove to make the work stronger?</li>
             <li>Where did the process break and how did you adapt?</li>
           </ol>
-          <p>
-            Close with links to the designer, relevant artifacts, and a clear CTA to subscribe or join the community.
-          </p>
         </section>
 
         <footer className="mt-12 border-t border-black/10 pt-6">
