@@ -67,7 +67,7 @@ export default function ExplorePage() {
         <section className="mb-16">
           <div className="mb-4 flex items-center justify-between">
             <h3 className="text-sm uppercase tracking-wide text-black/50">Latest</h3>
-            <Link href="#" className="text-xs text-black/60 hover:text-black">RSS</Link>
+            <Link href="/api/rss" className="text-xs text-black/60 hover:text-black">RSS</Link>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {DEMO_POSTS.map((post, idx) => (
