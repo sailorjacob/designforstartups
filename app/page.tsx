@@ -2,6 +2,7 @@ import { ArrowRight, Sparkles, Twitter, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import AccentOverlay from "@/components/accent-overlay"
+import VariantToggles from "@/components/variant-toggles"
 import Script from "next/script"
 import Link from "next/link"
 
@@ -10,9 +11,10 @@ export default function HomePage() {
   return (
     <div className="h-dvh overflow-hidden bg-white">
       <div className="relative h-full w-full">
-        {/* Brand mark */}
-        <div className="absolute left-8 top-8 z-20 text-sm tracking-widest text-black/70">
-          DESIGN FOR STARTUPS
+        {/* Brand + theme toggles */}
+        <div className="absolute left-8 top-8 z-20 text-sm tracking-widest text-black/70">DESIGN FOR STARTUPS</div>
+        <div className="absolute right-8 top-8 z-20">
+          <VariantToggles />
         </div>
 
         {/* Explore button */}
@@ -36,7 +38,7 @@ export default function HomePage() {
           <h1 className="text-6xl md:text-8xl font-light leading-[0.95] tracking-[-0.02em] text-black">
             A design network and studio.
             <br />
-            <span className="font-extralight text-black/70">Like IDEO—nimble, global, and hands-on.</span>
+            <span className="font-extralight text-black/70">Nimble, global, and hands-on.</span>
           </h1>
 
           <div className="mt-10 flex items-center gap-4">
@@ -130,27 +132,16 @@ export default function HomePage() {
         {/* Frame */}
         <div className="pointer-events-none absolute inset-0 rounded-none md:rounded-[24px] border border-black/[0.06]" />
 
-        {/* Social - Footer links */}
-        <div className="absolute bottom-8 left-8 z-20 flex items-center gap-4 text-black/60">
+        {/* Social - X only */}
+        <div className="absolute bottom-8 left-8 z-20 flex items-center text-black/60">
           <a
             href="https://x.com/havenengineer"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="X (Twitter) - @havenengineer"
-            className="inline-flex items-center gap-2 hover:text-black"
+            aria-label="X (Twitter)"
+            className="inline-flex items-center hover:text-black"
           >
             <Twitter className="h-4 w-4" />
-            <span className="text-xs">@havenengineer</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/company/havenengineer/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="inline-flex items-center gap-2 hover:text-black"
-          >
-            <Linkedin className="h-4 w-4" />
-            <span className="text-xs">LinkedIn</span>
           </a>
         </div>
       </div>
