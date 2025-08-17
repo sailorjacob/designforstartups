@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, Twitter } from "lucide-react"
+import { ArrowRight, Sparkles, Twitter, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import AccentOverlay from "@/components/accent-overlay"
@@ -130,17 +130,29 @@ export default function HomePage() {
         {/* Frame */}
         <div className="pointer-events-none absolute inset-0 rounded-none md:rounded-[24px] border border-black/[0.06]" />
 
-        {/* Social - X link */}
-        <a
-          href="https://x.com/havenengineer"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="X (Twitter) - @havenengineer"
-          className="absolute bottom-8 left-8 z-20 inline-flex items-center gap-2 text-black/60 hover:text-black"
-        >
-          <Twitter className="h-4 w-4" />
-          <span className="text-xs">@havenengineer</span>
-        </a>
+        {/* Social - Footer links */}
+        <div className="absolute bottom-8 left-8 z-20 flex items-center gap-4 text-black/60">
+          <a
+            href="https://x.com/havenengineer"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="X (Twitter) - @havenengineer"
+            className="inline-flex items-center gap-2 hover:text-black"
+          >
+            <Twitter className="h-4 w-4" />
+            <span className="text-xs">@havenengineer</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/havenengineer/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="inline-flex items-center gap-2 hover:text-black"
+          >
+            <Linkedin className="h-4 w-4" />
+            <span className="text-xs">LinkedIn</span>
+          </a>
+        </div>
       </div>
     </div>
   )
