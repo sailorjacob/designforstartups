@@ -1,43 +1,5 @@
 import Link from "next/link"
-
-type Post = {
-  title: string
-  excerpt: string
-  tag: string
-  href: string
-  image: string
-}
-
-const posts: Post[] = [
-  {
-    title: "Design Leader Interview: Crafting Identity at Seed Stage",
-    excerpt: "We sat down with a founding designer to unpack how early identity systems evolve with product and team maturity.",
-    tag: "Interview",
-    href: "#",
-    image: "/placeholder.jpg",
-  },
-  {
-    title: "Case Study: Messaging Overhaul that 3x’d Trials",
-    excerpt: "A focused pass on narrative, tone, and visual hierarchy led to a measurable lift across the funnel.",
-    tag: "Case Study",
-    href: "#",
-    image: "/placeholder.jpg",
-  },
-  {
-    title: "Framework: Founder-Led Brand in 30 Days",
-    excerpt: "A guided sprint structure for seed to Series A teams to set a durable brand foundation.",
-    tag: "Playbook",
-    href: "#",
-    image: "/placeholder.jpg",
-  },
-  {
-    title: "Interview: Hiring Your First Designer",
-    excerpt: "Signals, ladders, and how to scope the first 90 days for success.",
-    tag: "Interview",
-    href: "#",
-    image: "/placeholder.jpg",
-  },
-]
+import { DEMO_POSTS } from "@/lib/posts"
 
 export default function ExplorePage() {
   return (
@@ -59,21 +21,21 @@ export default function ExplorePage() {
         {/* Featured */}
         <section className="mb-10">
           <div className="grid items-stretch gap-6 sm:grid-cols-2">
-            <Link href={posts[0].href} className="group">
+            <Link href={`/explore/${DEMO_POSTS[0].slug}`} className="group">
               <article className="h-full overflow-hidden rounded-xl border border-black/10 bg-white/70 backdrop-blur">
                 <div className="aspect-[16/9] w-full overflow-hidden bg-black/5">
-                  <img src={posts[0].image} alt={posts[0].title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+                  <img src={DEMO_POSTS[0].image} alt={DEMO_POSTS[0].title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
                 </div>
                 <div className="p-5 sm:p-6">
-                  <div className="mb-2 text-[11px] uppercase tracking-wide text-black/50">{posts[0].tag}</div>
-                  <h2 className="mb-2 text-xl sm:text-2xl font-light text-black">{posts[0].title}</h2>
-                  <p className="text-sm text-black/60">{posts[0].excerpt}</p>
+                  <div className="mb-2 text-[11px] uppercase tracking-wide text-black/50">{DEMO_POSTS[0].tag}</div>
+                  <h2 className="mb-2 text-xl sm:text-2xl font-light text-black">{DEMO_POSTS[0].title}</h2>
+                  <p className="text-sm text-black/60">{DEMO_POSTS[0].excerpt}</p>
                 </div>
               </article>
             </Link>
             <div className="grid gap-6">
-              {posts.slice(1, 3).map((post, idx) => (
-                <Link key={idx} href={post.href} className="group">
+              {DEMO_POSTS.slice(1, 3).map((post, idx) => (
+                <Link key={idx} href={`/explore/${post.slug}`} className="group">
                   <article className="overflow-hidden rounded-xl border border-black/10 bg-white/70 backdrop-blur">
                     <div className="aspect-[16/9] w-full overflow-hidden bg-black/5">
                       <img src={post.image} alt={post.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
@@ -97,8 +59,8 @@ export default function ExplorePage() {
             <Link href="#" className="text-xs text-black/60 hover:text-black">RSS</Link>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post, idx) => (
-              <Link key={idx} href={post.href} className="group">
+            {DEMO_POSTS.map((post, idx) => (
+              <Link key={idx} href={`/explore/${post.slug}`} className="group">
                 <article className="overflow-hidden rounded-xl border border-black/10 bg-white/70 backdrop-blur transition-shadow hover:shadow-sm">
                   <div className="aspect-[16/10] w-full overflow-hidden bg-black/5">
                     <img
