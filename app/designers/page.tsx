@@ -14,6 +14,14 @@ export default function DesignersPage() {
           <Link href="/join" className="text-sm text-black/60 hover:text-black">Get listed →</Link>
         </div>
 
+        {/* Navigation tabs */}
+        <div className="mb-8 flex gap-6 border-b border-black/10 pb-4">
+          <Link href="/explore" className="text-sm text-black/60 hover:text-black">Articles</Link>
+          <Link href="/designers" className="text-sm font-medium text-black border-b-2 border-black pb-2">Designers</Link>
+          <Link href="/jobs" className="text-sm text-black/60 hover:text-black">Jobs</Link>
+          <Link href="/startups" className="text-sm text-black/60 hover:text-black">Startups</Link>
+        </div>
+
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {DESIGNERS.map((d) => (
             <article key={d.slug} className="rounded-xl border border-black/10 bg-white/70 p-5 backdrop-blur">

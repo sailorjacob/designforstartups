@@ -21,6 +21,14 @@ export default function ExplorePage() {
           <Link href="/" className="text-sm text-black/60 hover:text-black">Back home →</Link>
         </div>
 
+        {/* Navigation tabs */}
+        <div className="mb-8 flex gap-6 border-b border-black/10 pb-4">
+          <Link href="/explore" className="text-sm font-medium text-black border-b-2 border-black pb-2">Articles</Link>
+          <Link href="/designers" className="text-sm text-black/60 hover:text-black">Designers</Link>
+          <Link href="/jobs" className="text-sm text-black/60 hover:text-black">Jobs</Link>
+          <Link href="/startups" className="text-sm text-black/60 hover:text-black">Startups</Link>
+        </div>
+
         {/* Featured 2x2 grid */}
         <section className="mb-10">
           <div className="grid gap-6 sm:grid-cols-2">

@@ -13,6 +13,14 @@ export default function JobsPage() {
           <Link href="/join" className="text-sm text-black/60 hover:text-black">Post a job →</Link>
         </div>
 
+        {/* Navigation tabs */}
+        <div className="mb-8 flex gap-6 border-b border-black/10 pb-4">
+          <Link href="/explore" className="text-sm text-black/60 hover:text-black">Articles</Link>
+          <Link href="/designers" className="text-sm text-black/60 hover:text-black">Designers</Link>
+          <Link href="/jobs" className="text-sm font-medium text-black border-b-2 border-black pb-2">Jobs</Link>
+          <Link href="/startups" className="text-sm text-black/60 hover:text-black">Startups</Link>
+        </div>
+
         <div className="grid gap-3">
           {[1,2,3].map((i) => (
             <div key={i} className="rounded-lg border border-black/10 bg-white/70 p-4 backdrop-blur">
