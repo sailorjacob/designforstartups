@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import AccentOverlay from "@/components/accent-overlay"
 import Script from "next/script"
+import Link from "next/link"
 
 export default function HomePage() {
   const bookingUrl = "https://cal.com/designforstartups/secret";
@@ -12,6 +13,13 @@ export default function HomePage() {
         {/* Brand mark */}
         <div className="absolute left-8 top-8 z-20 text-sm tracking-widest text-black/70">
           DESIGN FOR STARTUPS
+        </div>
+
+        {/* Explore button */}
+        <div className="absolute right-8 top-8 z-20">
+          <Link href="/explore">
+            <Button variant="outline" className="bg-white/70 hover:bg-white">Explore</Button>
+          </Link>
         </div>
 
         <AccentOverlay />
