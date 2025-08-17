@@ -1,4 +1,5 @@
 import { DEMO_POSTS } from "@/lib/posts"
+import { AUTHORS } from "@/lib/authors"
 import Link from "next/link"
 
 type Params = { params: { slug: string } }
@@ -11,14 +12,22 @@ export default function ArticlePage({ params }: Params) {
   const post = DEMO_POSTS.find((p) => p.slug === params.slug)
   if (!post) return null
 
+  const author = AUTHORS.find((a) => a.slug === post.authorSlug)
   return (
     <div className="min-h-dvh bg-white">
       <article className="relative mx-auto max-w-3xl px-6 py-12">
         <Link href="/explore" className="text-sm text-black/60 hover:text-black">← Back to Explore</Link>
         <header className="mt-6">
-          <div className="mb-3 text-[11px] uppercase tracking-wide text-black/50">{post.tag}</div>
+          <div className="mb-3 text-[11px] uppercase tracking-wide text-black/50">{post.tags.join(" · ")}</div>
           <h1 className="text-3xl sm:text-5xl font-light tracking-[-0.02em] text-black">{post.title}</h1>
-          <div className="mt-3 text-xs text-black/50">{post.author} · {post.date}</div>
+          <div className="mt-3 flex items-center gap-3 text-xs text-black/50">
+            {author?.avatar && (
+              <img src={author.avatar} alt={author.name} className="h-6 w-6 rounded-full border border-black/10" />
+            )}
+            <span>{author?.name ?? ""}</span>
+            <span>·</span>
+            <span>{post.date}</span>
+          </div>
         </header>
 
         <div className="mt-8 overflow-hidden rounded-xl border border-black/10">

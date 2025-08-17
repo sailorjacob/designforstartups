@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { DEMO_POSTS } from "@/lib/posts"
+import { RESOURCE_LINKS } from "@/lib/resources"
 
 export default function ExplorePage() {
   return (
@@ -27,7 +28,7 @@ export default function ExplorePage() {
                   <img src={DEMO_POSTS[0].image} alt={DEMO_POSTS[0].title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
                 </div>
                 <div className="p-5 sm:p-6">
-                  <div className="mb-2 text-[11px] uppercase tracking-wide text-black/50">{DEMO_POSTS[0].tag}</div>
+                  <div className="mb-2 text-[11px] uppercase tracking-wide text-black/50">{DEMO_POSTS[0].tags.join(" · ")}</div>
                   <h2 className="mb-2 text-xl sm:text-2xl font-light text-black">{DEMO_POSTS[0].title}</h2>
                   <p className="text-sm text-black/60">{DEMO_POSTS[0].excerpt}</p>
                 </div>
@@ -41,7 +42,7 @@ export default function ExplorePage() {
                       <img src={post.image} alt={post.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
                     </div>
                     <div className="p-4 sm:p-5">
-                      <div className="mb-2 text-[11px] uppercase tracking-wide text-black/50">{post.tag}</div>
+                      <div className="mb-2 text-[11px] uppercase tracking-wide text-black/50">{post.tags.join(" · ")}</div>
                       <h3 className="mb-2 text-lg sm:text-xl font-light text-black">{post.title}</h3>
                       <p className="text-sm text-black/60">{post.excerpt}</p>
                     </div>
@@ -70,12 +71,44 @@ export default function ExplorePage() {
                     />
                   </div>
                   <div className="p-4 sm:p-5">
-                    <div className="mb-2 text-[11px] uppercase tracking-wide text-black/50">{post.tag}</div>
+                    <div className="mb-2 text-[11px] uppercase tracking-wide text-black/50">{post.tags.join(" · ")}</div>
                     <h4 className="mb-2 text-lg sm:text-xl font-light text-black">{post.title}</h4>
                     <p className="text-sm text-black/60">{post.excerpt}</p>
                   </div>
                 </article>
               </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Categories quick links */}
+        <section className="mb-10">
+          <div className="flex flex-wrap gap-2 text-xs">
+            {["Designer Interviews", "Design Principles", "Startup Stories", "Community Forum", "Job Board"].map((c) => (
+              <span key={c} className="rounded-full border border-black/10 bg-white/70 px-3 py-1 text-black/70">{c}</span>
+            ))}
+          </div>
+        </section>
+
+        {/* Resource directory */}
+        <section className="mb-16">
+          <div className="mb-4 flex items-center justify-between">
+            <h3 className="text-sm uppercase tracking-wide text-black/50">Resource Directory</h3>
+            <Link href="#" className="text-xs text-black/60 hover:text-black">Suggest a resource</Link>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {RESOURCE_LINKS.map((r) => (
+              <a
+                key={r.href}
+                href={r.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-lg border border-black/10 bg-white/70 p-4 hover:bg-white"
+              >
+                <div className="text-[11px] uppercase tracking-wide text-black/50">{r.category}</div>
+                <div className="mt-1 text-sm text-black group-hover:underline">{r.title}</div>
+                {r.description && <div className="mt-1 text-xs text-black/60">{r.description}</div>}
+              </a>
             ))}
           </div>
         </section>

@@ -2,10 +2,10 @@ export type Post = {
   slug: string
   title: string
   excerpt: string
-  tag: string
+  tags: string[]
   image: string
-  author?: string
-  date?: string
+  authorSlug: string
+  date: string
 }
 
 export const DEMO_POSTS: Post[] = [
@@ -14,9 +14,9 @@ export const DEMO_POSTS: Post[] = [
     title: "Design Leader Interview: Crafting Identity at Seed Stage",
     excerpt:
       "We sat down with a founding designer to unpack how early identity systems evolve with product and team maturity.",
-    tag: "Interview",
+    tags: ["Interviews"],
     image: "/placeholder.jpg",
-    author: "Design for Startups",
+    authorSlug: "dfs",
     date: "2025-08-17",
   },
   {
@@ -24,9 +24,9 @@ export const DEMO_POSTS: Post[] = [
     title: "Case Study: Messaging Overhaul that 3x’d Trials",
     excerpt:
       "A focused pass on narrative, tone, and visual hierarchy led to a measurable lift across the funnel.",
-    tag: "Case Study",
+    tags: ["Startups", "Case Study"],
     image: "/placeholder.jpg",
-    author: "Design for Startups",
+    authorSlug: "dfs",
     date: "2025-08-10",
   },
   {
@@ -34,18 +34,18 @@ export const DEMO_POSTS: Post[] = [
     title: "Framework: Founder-Led Brand in 30 Days",
     excerpt:
       "A guided sprint structure for seed to Series A teams to set a durable brand foundation.",
-    tag: "Playbook",
+    tags: ["Principles", "Playbooks"],
     image: "/placeholder.jpg",
-    author: "Design for Startups",
+    authorSlug: "dfs",
     date: "2025-08-05",
   },
   {
     slug: "interview-hiring-your-first-designer",
     title: "Interview: Hiring Your First Designer",
     excerpt: "Signals, ladders, and how to scope the first 90 days for success.",
-    tag: "Interview",
+    tags: ["Interviews"],
     image: "/placeholder.jpg",
-    author: "Design for Startups",
+    authorSlug: "dfs",
     date: "2025-08-01",
   },
 ]
