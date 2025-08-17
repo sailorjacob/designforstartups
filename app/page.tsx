@@ -11,14 +11,12 @@ export default function HomePage() {
   return (
     <div className="h-dvh overflow-hidden bg-white">
       <div className="relative h-full w-full">
-        {/* Brand + theme toggles */}
+        {/* Brand mark */}
         <div className="absolute left-8 top-8 z-20 text-sm tracking-widest text-black/70">DESIGN FOR STARTUPS</div>
-        <div className="absolute right-8 top-8 z-20">
+        
+        {/* Top right controls */}
+        <div className="absolute right-8 top-8 z-20 flex items-center gap-4">
           <VariantToggles />
-        </div>
-
-        {/* Explore button */}
-        <div className="absolute right-8 top-8 z-20">
           <Link href="/explore">
             <Button variant="outline" className="bg-white/70 hover:bg-white">Explore</Button>
           </Link>
@@ -38,7 +36,7 @@ export default function HomePage() {
           <h1 className="text-6xl md:text-8xl font-light leading-[0.95] tracking-[-0.02em] text-black">
             A design network and studio.
             <br />
-            <span className="font-extralight text-black/70">Nimble, global, and hands-on.</span>
+            <span className="font-extralight text-black/70">Just design—nimble, global, and hands-on.</span>
           </h1>
 
           <div className="mt-10 flex items-center gap-4">
