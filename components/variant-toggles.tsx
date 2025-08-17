@@ -19,6 +19,7 @@ export default function VariantToggles() {
 
   function setVariant(variant: AccentVariant) {
     if (typeof window === "undefined") return
+    console.log("Setting variant to:", variant)
     window.localStorage.setItem("accent-variant", variant)
     setActiveVariant(variant)
     document.dispatchEvent(new CustomEvent("accent-variant", { detail: variant }))

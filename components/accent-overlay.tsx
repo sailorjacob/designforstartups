@@ -10,13 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+
 
 type AccentVariant = "classic" | "neon" | "rainbow"
 
@@ -31,6 +25,13 @@ export default function AccentOverlay() {
 
   useEffect(() => {
     setVariant(getInitialVariant())
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail as AccentVariant
+      console.log("AccentOverlay received variant:", detail)
+      setVariant(detail)
+    }
+    document.addEventListener("accent-variant", handler as EventListener)
+    return () => document.removeEventListener("accent-variant", handler as EventListener)
   }, [])
 
   useEffect(() => {
@@ -73,19 +74,8 @@ export default function AccentOverlay() {
         </div>
       </div>
 
-      {/* Controls */}
+      {/* Controls (about/contact only) */}
       <div className="pointer-events-auto absolute bottom-8 right-8 z-20 flex items-center gap-2">
-        <Select value={variant} onValueChange={(v) => setVariant(v as AccentVariant)}>
-          <SelectTrigger className="w-[140px] h-8 text-xs">
-            <SelectValue placeholder="Accent" />
-          </SelectTrigger>
-          <SelectContent align="end">
-            <SelectItem value="classic">Classic</SelectItem>
-            <SelectItem value="neon">Neon (Blue/Silver/Green)</SelectItem>
-            <SelectItem value="rainbow">Neon (Rainbow)</SelectItem>
-          </SelectContent>
-        </Select>
-
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="outline" className="px-3 py-2 text-xs">About</Button>
