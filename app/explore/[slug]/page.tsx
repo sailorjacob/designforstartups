@@ -22,7 +22,7 @@ export default function ArticlePage({ params }: Params) {
           <h1 className="text-3xl sm:text-5xl font-light tracking-[-0.02em] text-black">{post.title}</h1>
           <div className="mt-3 flex items-center gap-3 text-xs text-black/50">
             {author?.avatar && (
-              <img src={author.avatar} alt={author.name} className="h-6 w-6 rounded-full border border-black/10" />
+              <span className="h-6 w-6 rounded-full border border-black/10" style={{ backgroundColor: "#39ff14" }} aria-hidden />
             )}
             <span>{author?.name ?? ""}</span>
             <span>·</span>
@@ -31,7 +31,7 @@ export default function ArticlePage({ params }: Params) {
         </header>
 
         <div className="mt-8 overflow-hidden rounded-xl border border-black/10">
-          <img src={post.image} alt="" className="h-auto w-full object-cover" />
+          <div className="aspect-[16/9] w-full" style={{ backgroundColor: "#00f0ff" }} aria-hidden />
         </div>
 
         <section className="prose prose-neutral mt-8 max-w-none">
