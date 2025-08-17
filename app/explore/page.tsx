@@ -30,25 +30,25 @@ export default function ExplorePage() {
         </div>
 
         {/* Featured 2x2 grid */}
-        <section className="mb-10">
-          <div className="grid gap-6 sm:grid-cols-2">
+        <section className="mb-12">
+          <div className="grid gap-8 sm:grid-cols-2">
             {DEMO_POSTS.slice(0, 4).map((post, idx) => (
-              <article key={post.slug} className="overflow-hidden rounded-xl border border-black/10 bg-white/70 backdrop-blur">
-                <Link href={`/explore/${post.slug}`} className="group block">
-                  <div className="aspect-[16/9] w-full overflow-hidden bg-black/5">
+              <article key={post.slug} className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-md">
+                <Link href={`/explore/${post.slug}`} className="block">
+                  <div className="aspect-[16/9] w-full overflow-hidden">
                     <div
-                      className="h-full w-full transition-transform duration-300 group-hover:scale-[1.03]"
+                      className="h-full w-full transition-transform duration-500 group-hover:scale-105"
                       style={{ backgroundColor: neonColors[idx % neonColors.length] }}
                       aria-hidden
                     />
                   </div>
                 </Link>
-                <div className="p-4 sm:p-5">
-                  <div className="mb-2 text-[11px] uppercase tracking-wide text-black/50">{post.tags.join(" · ")}</div>
-                  <Link href={`/explore/${post.slug}`} className="hover:underline">
-                    <h3 className="mb-2 text-lg sm:text-xl font-light text-black">{post.title}</h3>
+                <div className="p-6">
+                  <div className="mb-3 text-xs font-medium uppercase tracking-wide text-black/50">{post.tags.join(" · ")}</div>
+                  <Link href={`/explore/${post.slug}`} className="group-hover:text-black/80">
+                    <h3 className="mb-3 text-xl font-semibold leading-tight text-black">{post.title}</h3>
                   </Link>
-                  <p className="text-sm text-black/60">{post.excerpt}</p>
+                  <p className="text-sm leading-relaxed text-black/70">{post.excerpt}</p>
                 </div>
               </article>
             ))}
@@ -57,28 +57,27 @@ export default function ExplorePage() {
 
         {/* All posts */}
         <section className="mb-16">
-          <div className="mb-4 flex items-center justify-between">
+          <div className="mb-6">
             <h3 className="text-sm uppercase tracking-wide text-black/50">Latest</h3>
-            <Link href="/api/rss" className="text-xs text-black/60 hover:text-black">RSS</Link>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {DEMO_POSTS.slice(4).map((post, idx) => (
-              <article key={post.slug} className="overflow-hidden rounded-xl border border-black/10 bg-white/70 backdrop-blur transition-shadow hover:shadow-sm">
-                <Link href={`/explore/${post.slug}`} className="group block">
-                  <div className="aspect-[16/10] w-full overflow-hidden bg-black/5">
+              <article key={post.slug} className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-md">
+                <Link href={`/explore/${post.slug}`} className="block">
+                  <div className="aspect-[16/10] w-full overflow-hidden">
                     <div
-                      className="h-full w-full transition-transform duration-300 group-hover:scale-[1.03]"
-                      style={{ backgroundColor: neonColors[idx % neonColors.length] }}
+                      className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                      style={{ backgroundColor: neonColors[(idx + 4) % neonColors.length] }}
                       aria-hidden
                     />
                   </div>
                 </Link>
-                <div className="p-4 sm:p-5">
-                  <div className="mb-2 text-[11px] uppercase tracking-wide text-black/50">{post.tags.join(" · ")}</div>
-                  <Link href={`/explore/${post.slug}`} className="hover:underline">
-                    <h4 className="mb-2 text-lg sm:text-xl font-light text-black">{post.title}</h4>
+                <div className="p-5">
+                  <div className="mb-3 text-xs font-medium uppercase tracking-wide text-black/50">{post.tags.join(" · ")}</div>
+                  <Link href={`/explore/${post.slug}`} className="group-hover:text-black/80">
+                    <h4 className="mb-2 text-lg font-semibold leading-tight text-black">{post.title}</h4>
                   </Link>
-                  <p className="text-sm text-black/60">{post.excerpt}</p>
+                  <p className="text-sm leading-relaxed text-black/70">{post.excerpt}</p>
                 </div>
               </article>
             ))}
