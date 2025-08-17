@@ -29,6 +29,7 @@ export default function JoinPage() {
             >
               Subscribe
             </button>
+            <a href="/auth/signin" className="ml-3 text-sm text-black/60 hover:text-black">or sign in with Google/Apple →</a>
           </div>
 
           <div className="rounded-xl border border-black/10 bg-white/70 p-6 backdrop-blur">
@@ -49,6 +50,7 @@ export default function JoinPage() {
             >
               Subscribe
             </button>
+            <a href="/auth/signin" className="ml-3 text-sm text-black/60 hover:text-black">or sign in with Google/Apple →</a>
           </div>
         </div>
 

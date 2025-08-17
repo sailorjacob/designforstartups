@@ -21,49 +21,29 @@ export default function ExplorePage() {
           <Link href="/" className="text-sm text-black/60 hover:text-black">Back home →</Link>
         </div>
 
-        {/* Featured */}
+        {/* Featured 2x2 grid */}
         <section className="mb-10">
-          <div className="grid items-stretch gap-6 sm:grid-cols-2">
-            <article className="h-full overflow-hidden rounded-xl border border-black/10 bg-white/70 backdrop-blur">
-              <Link href={`/explore/${DEMO_POSTS[0].slug}`} className="group block">
-                <div className="aspect-[16/9] w-full overflow-hidden bg-black/5">
-                  <div
-                    className="h-full w-full transition-transform duration-300 group-hover:scale-[1.03]"
-                    style={{ backgroundColor: neonColors[0 % neonColors.length] }}
-                    aria-hidden
-                  />
-                </div>
-              </Link>
-              <div className="p-5 sm:p-6">
-                <div className="mb-2 text-[11px] uppercase tracking-wide text-black/50">{DEMO_POSTS[0].tags.join(" · ")}</div>
-                <Link href={`/explore/${DEMO_POSTS[0].slug}`} className="hover:underline">
-                  <h2 className="mb-2 text-xl sm:text-2xl font-light text-black">{DEMO_POSTS[0].title}</h2>
-                </Link>
-                <p className="text-sm text-black/60">{DEMO_POSTS[0].excerpt}</p>
-              </div>
-            </article>
-            <div className="grid gap-6">
-              {DEMO_POSTS.slice(1, 3).map((post, idx) => (
-                <article key={idx} className="overflow-hidden rounded-xl border border-black/10 bg-white/70 backdrop-blur">
-                  <Link href={`/explore/${post.slug}`} className="group block">
-                    <div className="aspect-[16/9] w-full overflow-hidden bg-black/5">
-                      <div
-                        className="h-full w-full transition-transform duration-300 group-hover:scale-[1.03]"
-                        style={{ backgroundColor: neonColors[(idx + 1) % neonColors.length] }}
-                        aria-hidden
-                      />
-                    </div>
-                  </Link>
-                  <div className="p-4 sm:p-5">
-                    <div className="mb-2 text-[11px] uppercase tracking-wide text-black/50">{post.tags.join(" · ")}</div>
-                    <Link href={`/explore/${post.slug}`} className="hover:underline">
-                      <h3 className="mb-2 text-lg sm:text-xl font-light text-black">{post.title}</h3>
-                    </Link>
-                    <p className="text-sm text-black/60">{post.excerpt}</p>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {DEMO_POSTS.slice(0, 4).map((post, idx) => (
+              <article key={post.slug} className="overflow-hidden rounded-xl border border-black/10 bg-white/70 backdrop-blur">
+                <Link href={`/explore/${post.slug}`} className="group block">
+                  <div className="aspect-[16/9] w-full overflow-hidden bg-black/5">
+                    <div
+                      className="h-full w-full transition-transform duration-300 group-hover:scale-[1.03]"
+                      style={{ backgroundColor: neonColors[idx % neonColors.length] }}
+                      aria-hidden
+                    />
                   </div>
-                </article>
-              ))}
-            </div>
+                </Link>
+                <div className="p-4 sm:p-5">
+                  <div className="mb-2 text-[11px] uppercase tracking-wide text-black/50">{post.tags.join(" · ")}</div>
+                  <Link href={`/explore/${post.slug}`} className="hover:underline">
+                    <h3 className="mb-2 text-lg sm:text-xl font-light text-black">{post.title}</h3>
+                  </Link>
+                  <p className="text-sm text-black/60">{post.excerpt}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -74,7 +54,7 @@ export default function ExplorePage() {
             <Link href="/api/rss" className="text-xs text-black/60 hover:text-black">RSS</Link>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {DEMO_POSTS.slice(1).map((post, idx) => (
+            {DEMO_POSTS.slice(4).map((post, idx) => (
               <article key={post.slug} className="overflow-hidden rounded-xl border border-black/10 bg-white/70 backdrop-blur transition-shadow hover:shadow-sm">
                 <Link href={`/explore/${post.slug}`} className="group block">
                   <div className="aspect-[16/10] w-full overflow-hidden bg-black/5">

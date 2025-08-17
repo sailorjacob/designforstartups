@@ -19,7 +19,9 @@ export default function DesignersPage() {
             <article key={d.slug} className="rounded-xl border border-black/10 bg-white/70 p-5 backdrop-blur">
               <div className="flex items-start justify-between">
                 <div>
-                  <h2 className="text-lg font-light text-black">{d.name}</h2>
+                  <Link href={`/designers/${d.slug}`} className="hover:underline">
+                    <h2 className="text-lg font-light text-black">{d.name}</h2>
+                  </Link>
                   <div className="text-sm text-black/60">{d.title}</div>
                 </div>
                 <span className="text-xs text-black/50">{d.location}</span>
