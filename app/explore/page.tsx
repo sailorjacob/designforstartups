@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { DEMO_POSTS } from "@/lib/posts"
 import { RESOURCE_LINKS } from "@/lib/resources"
+import { FEATURED_STARTUPS } from "@/lib/startups"
 
 export default function ExplorePage() {
   const neonColors = ["#39ff14", "#00f0ff", "#ff00f5", "#ffee00", "#ff007a"]
@@ -117,6 +118,23 @@ export default function ExplorePage() {
                 <div className="text-[11px] uppercase tracking-wide text-black/50">{r.category}</div>
                 <div className="mt-1 text-sm text-black group-hover:underline">{r.title}</div>
                 {r.description && <div className="mt-1 text-xs text-black/60">{r.description}</div>}
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* Featured startups */}
+        <section className="mb-16">
+          <div className="mb-4 flex items-center justify-between">
+            <h3 className="text-sm uppercase tracking-wide text-black/50">Featured Startups</h3>
+            <Link href="/jobs" className="text-xs text-black/60 hover:text-black">See roles</Link>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {FEATURED_STARTUPS.map((s) => (
+              <a key={s.name} href={s.link} className="rounded-lg border border-black/10 bg-white/70 p-4 hover:bg-white">
+                <div className="text-sm text-black">{s.name}</div>
+                <div className="mt-1 text-xs text-black/60">{s.blurb}</div>
+                <div className="mt-2 text-[11px] uppercase tracking-wide text-black/50">{s.location}</div>
               </a>
             ))}
           </div>

@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 
 export default function JoinPage() {
@@ -6,7 +7,7 @@ export default function JoinPage() {
       <div className="mx-auto max-w-4xl px-6 py-12">
         <div className="mb-10">
           <h1 className="text-3xl sm:text-5xl font-light tracking-[-0.02em] text-black">Join the Community</h1>
-          <p className="mt-3 max-w-2xl text-sm text-black/60">Designers get jobs, resources, and a curated network. Startups get access to vetted designers and priority intros.</p>
+          <p className="mt-3 max-w-2xl text-sm text-black/60">Curating designers for Fortune 500s, VC-backed startups, and founding teams—like a nimble global agency. Designers get jobs, resources, and a curated network. Startups get vetted designers and priority intros.</p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2">
@@ -18,7 +19,16 @@ export default function JoinPage() {
               <li>Community access</li>
               <li>Templates + playbooks</li>
             </ul>
-            <a href="#" className="mt-6 inline-block rounded-md border border-black/10 bg-black px-4 py-2 text-sm text-white hover:bg-black/90">Subscribe</a>
+            <button
+              className="mt-6 inline-block rounded-md border border-black/10 bg-black px-4 py-2 text-sm text-white hover:bg-black/90"
+              onClick={async () => {
+                const res = await fetch('/api/stripe/checkout', { method: 'POST', body: JSON.stringify({ plan: 'designer' }) })
+                const data = await res.json()
+                if (data.url) window.location.href = data.url
+              }}
+            >
+              Subscribe
+            </button>
           </div>
 
           <div className="rounded-xl border border-black/10 bg-white/70 p-6 backdrop-blur">
@@ -29,7 +39,16 @@ export default function JoinPage() {
               <li>Priority designer intros</li>
               <li>Hiring playbooks</li>
             </ul>
-            <a href="#" className="mt-6 inline-block rounded-md border border-black/10 bg-black px-4 py-2 text-sm text-white hover:bg-black/90">Subscribe</a>
+            <button
+              className="mt-6 inline-block rounded-md border border-black/10 bg-black px-4 py-2 text-sm text-white hover:bg-black/90"
+              onClick={async () => {
+                const res = await fetch('/api/stripe/checkout', { method: 'POST', body: JSON.stringify({ plan: 'startup' }) })
+                const data = await res.json()
+                if (data.url) window.location.href = data.url
+              }}
+            >
+              Subscribe
+            </button>
           </div>
         </div>
 

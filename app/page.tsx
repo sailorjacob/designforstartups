@@ -30,13 +30,13 @@ export default function HomePage() {
           <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(closest-side,_white_0%,_transparent_70%)] opacity-70 blur-2xl" />
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-xs text-black/60 backdrop-blur">
             <Sparkles className="h-3.5 w-3.5" />
-            bespoke brand & identity
+            curating designers for Fortune 500s, VC-backed startups, and founders
           </div>
 
           <h1 className="text-6xl md:text-8xl font-light leading-[0.95] tracking-[-0.02em] text-black">
-            You need design and branding help.
+            A design network and studio.
             <br />
-            <span className="font-extralight text-black/70">This is your answer.</span>
+            <span className="font-extralight text-black/70">Like IDEO—nimble, global, and hands-on.</span>
           </h1>
 
           <div className="mt-10 flex items-center gap-4">
