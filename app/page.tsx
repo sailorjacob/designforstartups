@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, X } from "lucide-react"
+import { ArrowRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import AccentOverlay from "@/components/accent-overlay"
@@ -127,18 +127,7 @@ export default function HomePage() {
         {/* Frame */}
         <div className="pointer-events-none absolute inset-0 rounded-none md:rounded-[24px] border border-black/[0.06]" />
 
-        {/* Social - X only */}
-        <div className="absolute bottom-8 left-8 z-20 flex items-center text-black/60">
-          <a
-            href="https://x.com/havenengineer"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="X (Twitter)"
-            className="inline-flex items-center hover:text-black"
-          >
-            <X className="h-4 w-4" />
-          </a>
-        </div>
+
       </div>
     </div>
   )
